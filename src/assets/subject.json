@@ -1,0 +1,21 @@
+[
+    { "value": "Math", "label": "Mathematics" },
+    { "value": "Eng", "label": "English" },
+    { "value": "Kis", "label": "Kiswahili" },
+    { "value": "Phy", "label": "Physics" },
+    { "value": "Chem", "label": "Chemistry" },
+    { "value": "Bio", "label": "Biology" },
+    { "value": "His", "label": "History" },
+    { "value": "Geo", "label": "Geography" },
+    { "value": "Bus", "label": "Business Studies" },
+    { "value": "Agr", "label": "Agriculture" },
+    { "value": "Comp", "label": "Computer Science" },
+    { "value": "CRE", "label": "CRE" },
+    { "value": "Hom", "label": "Home Science" },
+    { "value": "Music", "label": "Music" },
+    { "value": "Fre", "label": "French" },
+    { "value": "Ger", "label": "German" },
+    { "value": "Ara", "label": "Arabic" },
+    { "value": "IRE", "label": "IRE" },
+    { "value": "HRE", "label": "HRE" }
+]
