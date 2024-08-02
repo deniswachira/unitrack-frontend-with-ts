@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { userApi } from '../../features/api/userApiSlice';
 import Swal from 'sweetalert2';
-import { PuffLoader } from "react-spinners";
 import { toast, Toaster } from 'sonner';
 import { Trash } from 'lucide-react';
 
@@ -47,7 +46,7 @@ const MyProfile = () => {
   const { user, isAuthenticated } = useSelector((state: RootState) => state.auth);
   const { data: userData } = userApi.useGetUserByIdQuery(user?._id);
   const [updateProfile] = userApi.useUpdateUserDetailsMutation();
-  const { data: usersGrade, isLoading } = userApi.useGetUserGradesQuery(user?._id);
+  const { data: usersGrade} = userApi.useGetUserGradesQuery(user?._id);
   const [addUserGrade] = userApi.useAddUserGradeMutation();
   const [deleteUserGrade] = userApi.useDeleteUserGradeMutation();
   const [updateInterests] = userApi.useUpdateUserInterestsMutation();
@@ -55,7 +54,7 @@ const MyProfile = () => {
   const [newSubjectGrade, setNewSubjectGrade] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInterestModalOpen, setIsInterestModalOpen] = useState(false); // State for Interests Modal
-  const { register, handleSubmit,getValues, formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
   const profilePicture = 'https://via.placeholder.com/150';
 
   const handleModalToggle = () => {
