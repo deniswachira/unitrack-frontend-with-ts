@@ -30,7 +30,7 @@ export const coursesApi = createApi({
         }),
         geoScienceCluster : builder.mutation({
             query: (geoScienceClusterPayload) => ({
-                url: 'calculate/geo-sci-cluster',
+                url: 'calculate/geoscience-cluster',
                 method: 'POST',
                 body: geoScienceClusterPayload,
             }),

@@ -28,18 +28,12 @@ function SideNav() {
                 </Link>
             </li>
             <li>
-                <Link to="courses" className="flex items-center">
+                <Link to="recommendation" className="flex items-center">
                     <Ticket className="text-4xl text-yellow-600 mr-4" />
-                    <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Courses</span>
+                    <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Suggestion</span>
                 </Link>
             </li>
            
-            <li>
-                <Link to="universities" className="flex items-center">
-                    <Ticket className="text-4xl text-yellow-600 mr-4" />
-                    <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Universities</span>
-                </Link>
-            </li>
             <li>
                 <button onClick={ handleLogout } className="flex items-center">
                     <LogOut className="text-4xl text-red-600 mr-4" />

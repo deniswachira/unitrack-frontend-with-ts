@@ -7,11 +7,12 @@ import Login from './pages/Login';
 import MyProfile from './components/dashboard/MyProfile';
 import ProtectedRoute from './components/ProtectedRoute';
 import Calculate from './components/dashboard/Calculate';
-import Universities from './components/dashboard/Universities';
 import ExploreLawCourses from './pages/ExploreLawCourses';
 import ExploreBusCourses from './pages/ExploreBusCourses';
 import ExploreSocialSciCourses from './pages/ExploreSocialSciCourses';
 import Testimonials from './pages/Testimonials';
+import ExploreGeoSciCourses from './pages/ExploreGeoSciCourses ';
+import Recommendations from './components/dashboard/Recommendations';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
   {
     path: 'explore-soc-courses/cluster3',
     element: <ExploreSocialSciCourses />,
+    errorElement: <Error />,
+  },
+  {
+    path: 'explore-geo-courses/cluster4',
+    element: <ExploreGeoSciCourses />,
     errorElement: <Error />,
   },
   
@@ -68,8 +74,8 @@ const router = createBrowserRouter([
         element: <Calculate />,
       },
       {
-        path: "universities",
-      element: <Universities />,
+        path: "recommendation",
+        element: <Recommendations />,
       }
     ]
   },

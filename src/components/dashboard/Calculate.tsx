@@ -67,10 +67,35 @@ const Calculate = () => {
                 }
                 response = await lawCluster(newSubjects);
             } else if (selectedCluster === "cluster2") {
+                const maths = subjects.find((subject) => subject.subject === "Math");
+                if (!maths) {
+                    alert("Maths is required for Business cluster");
+                    setIsLoading(false);
+                    return;
+                }
+                if (!['C', 'C+', 'B', 'B+', 'A-', 'A'].includes(maths?.grade)) {
+                    alert("Maths grade should be C or higher for Business cluster");
+                    setIsLoading(false);
+                    return;
+                }
                 response = await businessCluster(newSubjects);
             } else if (selectedCluster === "cluster3") {
                 response = await socialScienceCluster(newSubjects);
             } else {
+                const maths = subjects.find((subject) => subject.subject === "Math");
+                const phy = subjects.find((subject) => subject.subject === "Phy");
+
+                if (!maths || !phy) {
+                    alert("Maths and Physics are required for Geosciences cluster");
+                    setIsLoading(false);
+                    return;
+                }
+
+                if (!['A', 'A-', 'B+', 'B', 'B-', 'C+'].includes(maths?.grade) || !['A', 'A-', 'B+', 'B', 'B', 'B-', 'C+'].includes(phy?.grade)) {
+                    alert("Maths and Physics grade should be C or higher for Geosciences cluster");
+                    setIsLoading(false);
+                    return;
+                }
                 response = await geoScience(newSubjects);
             }
 
