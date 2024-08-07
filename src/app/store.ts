@@ -4,6 +4,7 @@ import { userApi } from '../features/api/userApiSlice';
 import { coursesApi } from '../features/api/coursesApi';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
+import { universityCoursesApi } from '../features/api/universityCoursesApi';
 
 // Create a persist config for the auth slice
 const authPersistConfig = {
@@ -19,12 +20,13 @@ export const store = configureStore({
   reducer: {
     [userApi.reducerPath]: userApi.reducer,
     [coursesApi.reducerPath]: coursesApi.reducer,
+    [universityCoursesApi.reducerPath]: universityCoursesApi.reducer,
     auth: persistedAuthReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false, // To avoid serialization errors with redux-persist
-    }).concat(userApi.middleware,coursesApi.middleware), // Include the bookingApi middleware
+    }).concat(userApi.middleware,coursesApi.middleware, universityCoursesApi.middleware), // Include the bookingApi middleware
 });
 
 // Export the persisted store

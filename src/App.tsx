@@ -13,6 +13,7 @@ import ExploreSocialSciCourses from './pages/ExploreSocialSciCourses';
 import Testimonials from './pages/Testimonials';
 import ExploreGeoSciCourses from './pages/ExploreGeoSciCourses ';
 import Recommendations from './components/dashboard/Recommendations';
+import Universities from './components/dashboard/Universities';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "calculate",
         element: <Calculate />,
+      },
+      {
+        path: "universities",
+        element: <Universities />,
       },
       {
         path: "recommendation",

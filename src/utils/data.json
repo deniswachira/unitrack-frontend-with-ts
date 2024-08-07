@@ -1,0 +1,51 @@
+
+[
+  { "id": 1, "name": "University of Nairobi" },
+  { "id": 2, "name": "Kenyatta University" },
+  { "id": 3, "name": "Strathmore University" }
+]
+
+{
+  "1": [
+    {
+      "programmeCode": "CS101",
+      "programmeName": "Computer Science",
+      "institutionType": "Public",
+      "year1ProgrammeCost": "$2000",
+      "cutoff2023": 80,
+      "cutoff2022": 75,
+      "cutoff2021": 70
+    },
+    {
+      "programmeCode": "EE101",
+      "programmeName": "Electrical Engineering",
+      "institutionType": "Public",
+      "year1ProgrammeCost": "$2500",
+      "cutoff2023": 85,
+      "cutoff2022": 80,
+      "cutoff2021": 75
+    }
+  ],
+  "2": [
+    {
+      "programmeCode": "BA101",
+      "programmeName": "Business Administration",
+      "institutionType": "Public",
+      "year1ProgrammeCost": "$1800",
+      "cutoff2023": 78,
+      "cutoff2022": 73,
+      "cutoff2021": 70
+    }
+  ],
+  "3": [
+    {
+      "programmeCode": "IT101",
+      "programmeName": "Information Technology",
+      "institutionType": "Private",
+      "year1ProgrammeCost": "$3000",
+      "cutoff2023": 90,
+      "cutoff2022": 85,
+      "cutoff2021": 80
+    }
+  ]
+}
