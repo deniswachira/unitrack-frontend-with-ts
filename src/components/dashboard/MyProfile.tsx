@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaCamera, FaEdit, FaTimes } from 'react-icons/fa';
+import { FaEdit, FaTimes } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import subjectOptions from "../../assets/subject.json";
@@ -55,7 +55,6 @@ const MyProfile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInterestModalOpen, setIsInterestModalOpen] = useState(false); // State for Interests Modal
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
-  const profilePicture = 'https://via.placeholder.com/150';
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
@@ -161,14 +160,11 @@ const MyProfile = () => {
           <div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-5 mb-5">
             <div className="relative flex items-center gap-4 mb-4 md:mb-0">
               <img
-                src={profilePicture}
+                src={`https://ui-avatars.com/api/?name=${userData?.firstName}&background=random`}
                 alt="Profile"
                 className="w-24 h-24 rounded-full border-4 border-green-500"
               />
-              <label className="absolute bottom-0 bg-green-500 p-2 rounded-full cursor-pointer">
-                <FaCamera />
-                <input type="file" className="hidden" />
-              </label>
+             
               <div>
                 <h2 className="text-3xl font-bold">{userData?.firstName} {userData?.lastName} </h2>
                 <p className="text-gray-400">{userData?.email}</p>

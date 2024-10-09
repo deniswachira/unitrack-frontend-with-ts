@@ -85,7 +85,7 @@ const Navbar = () => {
                                     <div className="w-10 rounded-full">
                                         <img
                                             alt="profile"
-                                            src={userData?.profile_picture || profilePicture} />
+                                            src={`https://ui-avatars.com/api/?name=${userData?.firstName}&background=random` || profilePicture} />
                                     </div>
                                 </div>
 

@@ -34,6 +34,18 @@ function SideNav() {
                 </Link>
             </li>
             <li>
+                <Link to="mentorship" className="flex items-center">
+                    <Tags className="text-4xl text-yellow-600 mr-2" />
+                    <span className="hidden lg:inline ml-2 font-bold text-yellow-600">CareerMentor</span>
+                </Link>
+            </li>
+            <li>
+                <Link to="my-bookings" className="flex items-center">
+                    <Tags className="text-4xl text-yellow-600 mr-2" />
+                    <span className="hidden lg:inline ml-2 font-bold text-yellow-600">My Bookings</span>
+                </Link>
+            </li>
+            <li>
                 <Link to="recommendation" className="flex items-center">
                     <Ticket className="text-4xl text-yellow-600 mr-2" />
                     <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Suggestion</span>

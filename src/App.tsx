@@ -13,7 +13,9 @@ import ExploreSocialSciCourses from './pages/ExploreSocialSciCourses';
 import Testimonials from './pages/Testimonials';
 import ExploreGeoSciCourses from './pages/ExploreGeoSciCourses ';
 import Recommendations from './components/dashboard/Recommendations';
+import Mentorship from './components/dashboard/Mentorship';
 import Universities from './components/dashboard/Universities';
+import MyBookings from './components/dashboard/MyBookings';
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
       {
         path: "universities",
         element: <Universities />,
+      },
+      {
+        path: "mentorship",
+        element: <Mentorship />,
+      },
+      {
+        path: "my-bookings",
+        element: <MyBookings />,
       },
       {
         path: "recommendation",
