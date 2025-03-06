@@ -1,76 +1,76 @@
-// import  { useEffect, useState } from 'react';
-// import { mentorsApi } from '../../features/api/mentorsApi';
-// import { RootState } from "../../app/store";
-// import { useSelector } from 'react-redux';
-// import { appointmentsApi } from '../../features/api/appointmentApi';
-// import {toast,Toaster} from 'sonner';
+import  { useEffect, useState } from 'react';
+import { mentorsApi } from '../../features/api/mentorsApi';
+import { RootState } from "../../app/store";
+import { useSelector } from 'react-redux';
+import { appointmentsApi } from '../../features/api/appointmentApi';
+import {toast,Toaster} from 'sonner';
 
-// interface Mentor {
-//     _id: string;
-//     name: string;
-//     industry: string;
-//     skills: string[];
-//     location: string;
-//     bio: string;
-//     experienceYears: number;
-//     contactInfo: {
-//         email: string;
-//         phone: string;
-//     };
-// }
+interface Mentor {
+    _id: string;
+    name: string;
+    industry: string;
+    skills: string[];
+    location: string;
+    bio: string;
+    experienceYears: number;
+    contactInfo: {
+        email: string;
+        phone: string;
+    };
+}
 
 const Mentorship = () => {
-    // const { user } = useSelector((state: RootState) => state.auth);
-    // const [mentors, setMentors] = useState<Mentor[]>([]);
-    // const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
-    // const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    // const [selectedDate, setSelectedDate] = useState<string>('');
-    // const [createAppointment] = appointmentsApi.useCreateAppointmentMutation();
+    const { user } = useSelector((state: RootState) => state.auth);
+    const [mentors, setMentors] = useState<Mentor[]>([]);
+    const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [selectedDate, setSelectedDate] = useState<string>('');
+    const [createAppointment] = appointmentsApi.useCreateAppointmentMutation();
 
-    // const { data: mentorsData } = mentorsApi.useGetMentorsQuery(1, {
-    //     refetchOnMountOrArgChange: true,
-    //     pollingInterval: 1000,
-    // });
+    const { data: mentorsData } = mentorsApi.useGetMentorsQuery(1, {
+        refetchOnMountOrArgChange: true,
+        pollingInterval: 1000,
+    });
 
-    // useEffect(() => {
-    //     if (mentorsData) {
-    //         setMentors(mentorsData);
-    //     }
-    // }, [mentorsData]);
+    useEffect(() => {
+        if (mentorsData) {
+            setMentors(mentorsData);
+        }
+    }, [mentorsData]);
 
-    // const handleSelectMentor = (mentor: Mentor) => {
-    //     setSelectedMentor(mentor);
-    // };
+    const handleSelectMentor = (mentor: Mentor) => {
+        setSelectedMentor(mentor);
+    };
 
-    // const handleBookAppointment = () => {
-    //     if (selectedMentor) {
-    //         setIsModalOpen(true);
-    //     } else {
-    //         alert('Please select a mentor first.');
-    //     }
-    // };
+    const handleBookAppointment = () => {
+        if (selectedMentor) {
+            setIsModalOpen(true);
+        } else {
+            alert('Please select a mentor first.');
+        }
+    };
 
-    // const handleConfirmBooking = async () => {
-    //     if (selectedDate) {
-    //         setIsModalOpen(false);
-    //         try {
-    //             await createAppointment({
-    //                 userId: user._id,
-    //                 mentorId: selectedMentor!._id,
-    //                 appointmentDate: selectedDate
-    //             });
-    //             toast.success('Appointment booked successfully! You will receive an confirmation text shortly.');
-    //         } catch (error) {
-    //             alert('Failed to book the appointment. Please try again.');
-    //         }
-    //     } else {
-    //         alert('Please select a date for your appointment.');
-    //     }
-    // };
+    const handleConfirmBooking = async () => {
+        if (selectedDate) {
+            setIsModalOpen(false);
+            try {
+                await createAppointment({
+                    userId: user._id,
+                    mentorId: selectedMentor!._id,
+                    appointmentDate: selectedDate
+                });
+                toast.success('Appointment booked successfully! You will receive an confirmation text shortly.');
+            } catch (error) {
+                alert('Failed to book the appointment. Please try again.');
+            }
+        } else {
+            alert('Please select a date for your appointment.');
+        }
+    };
 
     return (
         <>
-            {/* <Toaster toastOptions={{
+            <Toaster toastOptions={{
                 classNames: {
                     error: 'bg-red-400',
                     success: 'text-green-400',
@@ -78,13 +78,13 @@ const Mentorship = () => {
                     info: 'bg-blue-400',
                 },
             }}
-            /> */}
+            />
         <div className="p-4 max-w-5xl mx-auto">
             <h1 className="text-xl font-bold mb-4 text-center">Available Mentors</h1>
 
-            <h1 className='text-blue-700'>Hang tight feature coming soon...😊😊</h1>
+            {/* <h1 className='text-blue-700'>Hang tight feature coming soon...😊😊</h1> */}
 
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {mentors.map((mentor) => (
                     <div
                         key={mentor._id}
@@ -158,7 +158,7 @@ const Mentorship = () => {
                         </div>
                     </div>
                 </div>
-            )} */}
+            )}
         </div>
     </>
     );
