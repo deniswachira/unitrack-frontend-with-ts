@@ -123,7 +123,7 @@ const Calculate = () => {
     };
 
     return (
-        <div className="min-h-screen text-white py-3 px-3">
+        <div className="min-h-screen text-dark py-3 px-3">
             <div className="flex justify-center items-center">
                 <h1 className="text-xl font-semibold text-green-400">Calculate Cluster Point</h1>
             </div>

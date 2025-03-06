@@ -11,5 +11,11 @@ export default {
   plugins: [
     daisyui,
   ],
+  daisyui: {
+    themes: ["light",
+      "dark",      
+      "wireframe",     
+      "sunset",], // Or any other themes you prefer
+  },
 }
 

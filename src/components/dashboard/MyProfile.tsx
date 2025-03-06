@@ -45,8 +45,8 @@ const MyProfile = () => {
   const [grades, setGrades] = useState([]);
   const { user, isAuthenticated } = useSelector((state: RootState) => state.auth);
   const { data: userData } = userApi.useGetUserByIdQuery(user?._id);
-  const [updateProfile] = userApi.useUpdateUserDetailsMutation();
-  const { data: usersGrade} = userApi.useGetUserGradesQuery(user?._id);
+  const [updateProfile, { isLoading: updateProfileLoading}] = userApi.useUpdateUserDetailsMutation();
+  const { data: usersGrade } = userApi.useGetUserGradesQuery(user?._id);
   const [addUserGrade] = userApi.useAddUserGradeMutation();
   const [deleteUserGrade] = userApi.useDeleteUserGradeMutation();
   const [updateInterests] = userApi.useUpdateUserInterestsMutation();
@@ -54,10 +54,21 @@ const MyProfile = () => {
   const [newSubjectGrade, setNewSubjectGrade] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInterestModalOpen, setIsInterestModalOpen] = useState(false); // State for Interests Modal
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormValues>();
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
+    if (!isModalOpen && userData) {
+      reset({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        county: userData.county,
+        finalGrade: userData.finalGrade,
+        interests: userData.interests,
+        hobbies: userData.hobbies,
+      });
+    }
   };
 
   const handleInterestModalToggle = () => {
@@ -106,7 +117,6 @@ const MyProfile = () => {
       console.log(error);
     }
   };
-
 
   // Function to handle deletion of subject
   const handleDeleteSubject = async (subject: string) => {
@@ -179,7 +189,7 @@ const MyProfile = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-700 rounded-lg p-4">
+            <div className="bg-gray-100 rounded-lg p-4">
               <h3 className="text-2xl font-bold mb-3">Personal Information</h3>
               <p className="mb-2">
                 <span className="font-bold">Grade:</span> {userData?.finalGrade}
@@ -188,7 +198,7 @@ const MyProfile = () => {
                 <span className="font-bold">County:</span> {userData?.county}
               </p>
             </div>
-            <div className="bg-gray-700 rounded-lg p-4">
+            <div className="bg-gray-100 rounded-lg p-4">
               <div className="flex justify-between items-center mb-3">
                 <h3 className="text-2xl font-bold">Interests</h3>
                 <button
@@ -207,7 +217,7 @@ const MyProfile = () => {
             </div>
           </div>
 
-          <div className="bg-gray-700 rounded-lg p-4 mt-10 w-full">
+          <div className="bg-gray-100 rounded-lg p-4 mt-10 w-full">
             <h3 className="text-2xl font-bold mb-3">Subject Scores</h3>
             <button className="btn btn-outline btn-success" onClick={() => (document.getElementById('my_modal_3') as HTMLDialogElement)?.showModal()}>Add Subject</button>
             <dialog id="my_modal_3" className="modal">
@@ -242,7 +252,7 @@ const MyProfile = () => {
 
             <ul className="mt-4">
               {grades.map((grade: Grade, index) => (
-                <li key={index} className="flex justify-between items-center bg-gray-800 rounded-lg p-4 mb-3">
+                <li key={index} className="flex justify-between items-center bg-gray-300 rounded-lg p-4 mb-3">
                   <span>{grade.subject}: {grade.grade}</span>
                   <button className="btn btn-outline btn-error" onClick={() => handleDeleteSubject(grade.subject)}>
                     <Trash /> Delete
@@ -261,27 +271,27 @@ const MyProfile = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
               <label htmlFor="firstName" className="block text-gray-700 font-bold mb-2">First Name</label>
-              <input id="firstName" type="text" className="input input-bordered w-full" defaultValue={userData?.firstName} {...register('firstName', { required: true })} />
+              <input id="firstName" type="text" className="input input-bordered w-full" {...register('firstName', { required: true })} />
               {errors.firstName && <p className="text-red-500">First name is required</p>}
             </div>
             <div className="mb-4">
               <label htmlFor="lastName" className="block text-gray-700 font-bold mb-2">Last Name</label>
-              <input id="lastName" type="text" className="input input-bordered w-full" defaultValue={userData?.lastName} {...register('lastName', { required: true })} />
+              <input id="lastName" type="text" className="input input-bordered w-full" {...register('lastName', { required: true })} />
               {errors.lastName && <p className="text-red-500">Last name is required</p>}
             </div>
             <div className="mb-4">
               <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-              <input id="email" type="email" className="input input-bordered w-full" defaultValue={userData?.email} {...register('email', { required: true })} />
+              <input id="email" type="email" className="input input-bordered w-full" {...register('email', { required: true })} />
               {errors.email && <p className="text-red-500">Email is required</p>}
             </div>
             <div className="mb-4">
               <label htmlFor="county" className="block text-gray-700 font-bold mb-2">County</label>
-              <input id="county" type="text" className="input input-bordered w-full" defaultValue={userData?.county} {...register('county', { required: true })} />
+              <input id="county" type="text" className="input input-bordered w-full" {...register('county', { required: true })} />
               {errors.county && <p className="text-red-500">County is required</p>}
             </div>
             <div className="mb-4">
               <label htmlFor="finalGrade" className="block text-gray-700 font-bold mb-2">Grade</label>
-              <select id="finalGrade" className="select select-bordered w-full" defaultValue={userData?.finalGrade} {...register('finalGrade', { required: true })}>
+              <select id="finalGrade" className="select select-bordered w-full" {...register('finalGrade', { required: true })}>
                 <option disabled value="">Select grade</option>
                 {gradeOptions.map((option, index) => (
                   <option key={index} value={option.value}>{option.label}</option>
@@ -290,7 +300,7 @@ const MyProfile = () => {
               {errors.finalGrade && <p className="text-red-500">Grade is required</p>}
             </div>
             <div className="modal-action">
-              <button className="btn btn-outline btn-success" type="submit">Update</button>
+              <button className="btn btn-outline btn-success" type="submit" disabled={updateProfileLoading}>Update</button>
               <button className="btn" type="button" onClick={handleModalToggle}>Close</button>
             </div>
           </form>

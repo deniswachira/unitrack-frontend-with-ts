@@ -12,7 +12,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user, isAuthenticated,  } = useSelector((state: RootState) => state.auth);
-    const{data:userData} = userApi.useGetUserByIdQuery(user?._id);
+    const{data:userData} = userApi.useGetUserByIdQuery(user?._id, {skip: !isAuthenticated});
     const profilePicture =  'https://via.placeholder.com/150';
 
     const handleLogout = () => {

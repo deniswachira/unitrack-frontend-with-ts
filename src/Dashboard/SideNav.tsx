@@ -1,4 +1,4 @@
-import { SquareUserRound, LogOut, Tags, Ticket } from "lucide-react";
+import { SquareUserRound, LogOut, Tags, University, UsersRound, SlidersVertical, Calculator } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { clearCredentials } from "../features/auth/authSlice";
@@ -23,19 +23,20 @@ function SideNav() {
             </li>
             <li>
                 <Link to="calculate" className="flex items-center">
-                    <Tags className="text-4xl text-yellow-600 mr-2" />
+                    <Calculator className="text-4xl text-yellow-600 mr-2" />
                     <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Calculate</span>
                 </Link>
             </li>
             <li>
                 <Link to="universities" className="flex items-center">
-                    <Tags className="text-4xl text-yellow-600 mr-2" />
+                    <University className="text-4xl text-yellow-600 mr-2" />
                     <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Universities</span>
+                    
                 </Link>
             </li>
             <li>
                 <Link to="mentorship" className="flex items-center">
-                    <Tags className="text-4xl text-yellow-600 mr-2" />
+                    <UsersRound className="text-4xl text-yellow-600 mr-2" />
                     <span className="hidden lg:inline ml-2 font-bold text-yellow-600">CareerMentor</span>
                 </Link>
             </li>
@@ -47,9 +48,10 @@ function SideNav() {
             </li>
             <li>
                 <Link to="recommendation" className="flex items-center">
-                    <Ticket className="text-4xl text-yellow-600 mr-2" />
+                    <SlidersVertical className="text-4xl text-yellow-600 mr-2" />
                     <span className="hidden lg:inline ml-2 font-bold text-yellow-600">Suggestion</span>
                 </Link>
+               
             </li>
            
             <li>

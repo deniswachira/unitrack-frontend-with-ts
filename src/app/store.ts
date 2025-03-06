@@ -7,6 +7,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import { universityCoursesApi } from '../features/api/universityCoursesApi';
 import {mentorsApi} from '../features/api/mentorsApi';
 import {appointmentsApi} from '../features/api/appointmentApi';
+import { modelApi } from '../features/api/modelApi';
 
 // Create a persist config for the auth slice
 const authPersistConfig = {
@@ -25,12 +26,13 @@ export const store = configureStore({
     [universityCoursesApi.reducerPath]: universityCoursesApi.reducer,
     [mentorsApi.reducerPath]: mentorsApi.reducer,
     [appointmentsApi.reducerPath]: appointmentsApi.reducer,
+    [modelApi.reducerPath]: modelApi.reducer,
         auth: persistedAuthReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false, // To avoid serialization errors with redux-persist
-    }).concat(userApi.middleware,coursesApi.middleware, universityCoursesApi.middleware, mentorsApi.middleware,appointmentsApi.middleware), // Include the bookingApi middleware
+    }).concat(userApi.middleware,coursesApi.middleware, modelApi.middleware, universityCoursesApi.middleware, mentorsApi.middleware,appointmentsApi.middleware), // Include the bookingApi middleware
 });
 
 // Export the persisted store

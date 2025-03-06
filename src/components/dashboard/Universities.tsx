@@ -37,8 +37,20 @@ const Universities = () => {
             intro: "Kirinyaga University is a public university offering a range of undergraduate programs with a focus on science and technology. Known for its excellent academic environment and state-of-the-art facilities, it provides a nurturing ground for innovation and research."
         },
         {
+            name: "Kenyatta",
+            intro: "Kirinyaga University is a public university offering a range of undergraduate programs with a focus on science and technology. Known for its excellent academic environment and state-of-the-art facilities, it provides a nurturing ground for innovation and research."
+        },
+        {
             name: "Nairobi",
             intro: "Nairobi University is a public university and one of the leading institutions of higher learning in Kenya. It offers a wide variety of programs and is renowned for its diverse student body, comprehensive research initiatives, and commitment to academic excellence."
+        },
+        {
+            name: "Embu",
+            intro: "Embu University is a public university and one of the leading institutions of higher learning in Kenya. It offers a wide variety of programs and is renowned for its diverse student body, comprehensive research initiatives, and commitment to academic excellence."
+        },
+        {
+            name: "Egerton",
+            intro: "Egerton University is a public university and one of the leading institutions of higher learning in Kenya. It offers a wide variety of programs and is renowned for its diverse student body, comprehensive research initiatives, and commitment to academic excellence."
         },
     ];
 
@@ -130,19 +142,19 @@ const Universities = () => {
                                                         <h3 className="font-bold">Cluster Subjects Required</h3>
                                                         <div className="grid grid-cols-2 gap-4">
                                                             <div>
-                                                                <p className='text-white'>Cluster Subject 1: {course.ClusterSubjectOne}</p>
-                                                                <p className='text-white'>Cluster Subject 2: {course.ClusterSubjectTwo}</p>
+                                                                <p className='text-blue-500'>Cluster Subject 1: {course.ClusterSubjectOne}</p>
+                                                                <p className='text-blue-500'>Cluster Subject 2: {course.ClusterSubjectTwo}</p>
                                                             </div>
                                                             <div>
-                                                                <p className='text-white'>Cluster Subject 3: {course.ClusterSubjectThree}</p>
-                                                                <p className='text-white'>Cluster Subject 4: {course.ClusterSubjectFour}</p>
+                                                                <p className='text-blue-500'>Cluster Subject 3: {course.ClusterSubjectThree}</p>
+                                                                <p className='text-blue-500'>Cluster Subject 4: {course.ClusterSubjectFour}</p>
                                                             </div>
                                                         </div>
                                                         <h4 className="font-bold">Minimum Subject Requirements</h4>
                                                         <div className="grid grid-cols-2 gap-4">
                                                             {course.MinimumSubjectRequirements.map((requirement: { Subject: string; Grade: string }, reqIndex: number) => (
                                                                 <div key={reqIndex}>
-                                                                    <p className='text-white'>{requirement.Subject}: {requirement.Grade}</p>
+                                                                    <p className='text-red-500'>{requirement.Subject}: {requirement.Grade}</p>
                                                                 </div>
                                                             ))}
                                                         </div>
@@ -177,6 +189,5 @@ const Universities = () => {
         </div>
     );
 }
-
 export default Universities;
 export type { IUniversity };

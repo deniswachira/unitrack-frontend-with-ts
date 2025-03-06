@@ -79,7 +79,7 @@ export default function Login() {
                                     {isLoading ? <span className="loading loading-spinner text-error"></span> : 'Login'}
                                 </button>
                             </div>
-                            <NavLink to="/" className="text-white mt-4 text-center block">
+                            <NavLink to="/" className="text-blue-500 mt-4 text-center block">
                                 🏡 Go to HomePage
                             </NavLink>
                             <div className="mt-4 text-center">

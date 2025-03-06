@@ -1,8 +1,9 @@
 export type UserRegisterFormValues = {
-    full_name: string;
-    phone_number: string;
-    address: string;
+    firstName: string;
+    lastName: string;
     email: string;
+    county: string;
+    userName: string;
     password: string;
 };
 

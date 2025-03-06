@@ -5,7 +5,7 @@ import Card from './Card'
 
 function Layout() {
     return (
-        <div className='flex max-h-fit min-h-full bg-gray-900 text-green-400'>
+        <div className='flex max-h-fit min-h-full bg-white-900 text-green-400'>
             <div className='min-w-[14%]  '>
                 <SideNav />
             </div>

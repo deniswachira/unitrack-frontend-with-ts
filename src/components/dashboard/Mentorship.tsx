@@ -82,7 +82,9 @@ const Mentorship = () => {
         <div className="p-4 max-w-5xl mx-auto">
             <h1 className="text-xl font-bold mb-4 text-center">Available Mentors</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h1 className='text-blue-700'>Hang tight feature coming soon...😊😊</h1>
+
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {mentors.map((mentor) => (
                     <div
                         key={mentor._id}
@@ -156,7 +158,7 @@ const Mentorship = () => {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
         </div>
     </>
     );

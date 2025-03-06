@@ -19,7 +19,7 @@ export const userApi = createApi({
     }),
     registerUser: builder.mutation<TUser,Partial<TUser>>({
       query: (userRegisterPayload: UserRegisterFormValues)=> ({
-        url: 'auth/register',
+        url: '/users/auth/register',
         method: 'POST',
         body: userRegisterPayload,
       }),
